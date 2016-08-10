@@ -12,25 +12,17 @@ import {
   View
 } from 'react-native';
 
-var ComicListView = require('./ComicListView');
-var MySpeech = require('./MySpeech');
-var MyList2 = require('./MyList2');
-var DataList = require('./DataList');
-var MyList3 = require('./MyList3');
-var MyList4 = require('./MyList4');
-var MyList5 = require('./MyList5');
-var MyList6 = require('./MyList6');
-var MyList7 = require('./MyList7');
-var ScrollerWithGrid = require('./ScrollerWithGrid');
-var ScrollerWithCatSymbol = require('./ScrollerWithCatSymbol');
 
+var DataList = require('./DataList');
+var IndexRequst2 = require('./IndexRequst2');
+var MyFlexKeyboradInput = require('./MyFlexKeyboradInput');
 
 
 class SpeechSynthesizer extends Component {
   render() {
     console.log(DataList)
     return (
-      <ScrollerWithCatSymbol></ScrollerWithCatSymbol>
+      <MyFlexKeyboradInput></MyFlexKeyboradInput>
     );
   }
 }

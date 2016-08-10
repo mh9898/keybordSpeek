@@ -25,7 +25,7 @@ import {
     import api  from './util/api';
 
 
-    class SpeechSynthesizer extends Component {
+    class IndexRequst extends Component {
 
       _onPressButtonGET() {
         fetch("olamundo-server.cloudapp.net/users/sign_in?user[email]=mh9898@gmail.com&user[password]=123456", {method: "GET"})
@@ -41,9 +41,15 @@ import {
 
     //fetch("http://localhost:3000/test", {method: "POST", body: JSON.stringify({username: "nraboy", firstname: "Nic", lastname: "Raboy"})})
 
+    //olamundo-server.cloudapp.net/users/sign_in?user[email]=youremail&user[password]=password
+
     _onPressButtonPOST() {
-      fetch("olamundo-server.cloudapp.net/users/sign_in?user[email]=youremail&user[password]=password", {method: "POST", body: JSON.stringify({youremail: "mh9898@gmail.com", password: "123456"})})
-     .then((response) => response.json())
+
+      var youremail = 'david.borohov@gmail.com';
+      var password = 'olamundo1234';
+      fetch("olamundo-server.cloudapp.net/users/sign_in?user[email]="+youremail+"&user[password]="+password,
+      {method: "POST"})
+     .then((response) => { console.log(response); response.json() })
      .then((responseData) => {
          AlertIOS.alert(
              "POST Response",
@@ -65,10 +71,7 @@ import {
             </View>
         );
     }
-
-    }
-
-
+  }
 
   const styles = StyleSheet.create({
     container: {
@@ -86,4 +89,4 @@ import {
    }
   });
 
-AppRegistry.registerComponent('SpeechSynthesizer', () => SpeechSynthesizer);
+module.exports = IndexRequst

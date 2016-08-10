@@ -20,7 +20,7 @@ import {
 var Data = require('./Data');
 var Speech = require('react-native-speech');
 
-class MyList6 extends Component {
+class MyListDispaly extends Component {
 
   constructor(props) {
     super(props);
@@ -35,7 +35,7 @@ class MyList6 extends Component {
 
     render() {
       return (
-          <View style={{flex: 1, justifyContent: 'flex-start'}}>
+          <View style={styles.container}>
               <ListView
                   dataSource={this.state.dataSource} // call data form state
                   renderRow={this.renderRow.bind(this)} // call func for each render row
@@ -62,7 +62,7 @@ class MyList6 extends Component {
 
       return(
         <TouchableHighlight onPress={() => this._startHandler(rowData)}>
-        <View>
+        <View style={styles.symbol}>
         <Image style={styles.image} source={rowData.image_require}/>
         <Text style={styles.welcome}>{rowData.text}</Text>
         </View>
@@ -74,79 +74,33 @@ class MyList6 extends Component {
 
 const styles = StyleSheet.create({
   container:{
-    alignItems: 'center',
     flex: 1,
   },
 
-  sc: {
-   flex: 1,
-   backgroundColor: '#F5FCFF',
 
-    flexDirection: 'row',
-  //  flexDirection: 'column',
-   //paddingTop: 540,
 
-   //flexWrap: 'wrap',
- },
- content: {
-   marginTop: 20,
-   //paddingHorizontal: 40,
-    alignSelf: 'flex-end',
-    alignItems: 'center',
-
-   //flex: 1,
-   //flexDirection: 'row',
- },
- card: {
-   flex: 1,
-   backgroundColor: '#ccc',
-   width: 300,
-   height: 300,
-   margin: 25,
-   justifyContent: 'space-around',
-   alignItems: 'center',
- },
   list: {
   justifyContent: 'center',
   flexDirection: 'row',
   flexWrap: 'wrap',
   alignItems: 'flex-start',
+  justifyContent: 'flex-start'
 },
-  welcome: {
-    fontSize: 16,
-    textAlign: 'center',
-    margin: 40,
-    justifyContent: 'space-around',
-  },
 
-viewImage: {
-  flex: 1,
-  justifyContent: 'center',
+symbol:{
+  alignItems: 'center',
+  flexDirection: 'column'
 },
   image: {
-    width: 156,
-    height: 156,
+    width: 54,
+    height: 54,
   },
-  input:{
-    flex: 1,
-    height: 50,
-    marginTop: 10,
-    padding: 4,
-    borderWidth: 1,
-    borderColor: 'blue',
-    alignItems: 'stretch'
+  welcome: {
+    fontSize: 12,
+    textAlign: 'center',
+    margin: 20,
+    justifyContent: 'space-around',
   },
-  button: {
-      borderColor: 'blue',
-      borderWidth: 2,
-      backgroundColor: '#eeeeee',
-      padding: 10,
-      marginRight: 5,
-      marginLeft: 5,
-      marginTop: 20,
-      textAlign: 'center',
-  },
-
 });
 
-module.exports = MyList6;
+module.exports = MyListDispaly;

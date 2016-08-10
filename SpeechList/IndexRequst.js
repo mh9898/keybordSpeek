@@ -28,7 +28,7 @@ import {
     class IndexRequst extends Component {
 
       _onPressButtonGET() {
-        fetch("olamundo-server.cloudapp.net/users/sign_in?user[email]=mh9898@gmail.com&user[password]=123456", {method: "GET"})
+        fetch("olamundo-server.cloudapp.net/categories.json?category=Clothing", {method: "GET"})
         .then((response) => response.json())
         .then((responseData) => {
             AlertIOS.alert(
@@ -43,21 +43,92 @@ import {
 
     //olamundo-server.cloudapp.net/users/sign_in?user[email]=youremail&user[password]=password
 
+
+    _onPressButtonPOST() {
+      console.log('press');
+      let data = {
+        method: 'POST',
+        credentials: 'same-origin',
+        mode: 'same-origin',
+        body: JSON.stringify({
+          email: "david.borohov@gmail.com",
+          password: "olamundo1234",
+        }),
+        headers: {
+          'Accept':       'application/json',
+          'Content-Type': 'application/json',
+          // 'X-CSRFToken':  cookie.load('csrftoken')
+        }
+      }
+      return fetch('olamundo-server.cloudapp.net/users/sign_in', data)
+              .then(response => response.json())  // promise
+              .then(json => dispatch(receiveAppos(json)))
+      }
+
+
+
+      //      fetch("olamundo-server.cloudapp.net/users/sign_in",
+      //       {method: "POST", body: JSON.stringify({
+      //         user[email]: "david.borohov@gmail.com",
+      //         user[password]: "olamundo1234",
+      //       })
+      //     })
+      //      .then((response) => response.json())
+      //      .then((responseData) => {
+      //          AlertIOS.alert(
+      //              "POST Response",
+      //              "Response Body -> " + JSON.stringify(responseData.body)
+      //          )
+      //      })
+      //      .done();
+      //  }
+
+
+
+
+
     _onPressButtonPOST() {
 
-      var youremail = 'mh9898@gmail.com';
-      var password = '123456';
-      fetch("olamundo-server.cloudapp.net/users/sign_in?user[email]="+youremail+"&user[password]="+password,
-      {method: "POST"})
-     .then((response) => { console.log(response); response.json() })
-     .then((responseData) => {
-         AlertIOS.alert(
-             "POST Response",
-             "Response Body -> " + JSON.stringify(responseData.body)
-         )
-     })
-     .done();
-    }
+      var youremail = 'david.borohov@gmail.com';
+      var password = 'olamundo1234';
+
+      //       user[password]: 'olamundo1234',
+
+      fetch('olamundo-server.cloudapp.net/users/sign_in', {
+  method: 'POST',
+  // headers: {
+  //   'Accept': 'application/json',
+  //   'Content-Type': 'application/json',
+  // },
+  body: JSON.stringify({
+    "user[email]": 'david.borohov@gmail.com',
+    "user[password]": 'olamundo1234',
+  })
+})
+
+      // var youremail = 'david.borohov@gmail.com';
+      // var password = 'olamundo1234';
+      // fetch("olamundo-server.cloudapp.net/users/sign_in",
+      //
+      //  {
+      //    method: "POST",
+      //
+      //       body: JSON.stringify({
+      //       user[email]: 'david.borohov@gmail.com',
+      //       user[password]: 'olamundo1234',
+      //       })
+      //     })
+
+
+    //     .then((response) => response.json())
+    //     .then((responseData) => {
+    //         AlertIOS.alert(
+    //             "POST Response",
+    //             "Response Body -> " + JSON.stringify(responseData.body)
+    //      )
+    //  })
+    //  .done();
+    // }
 
     render() {
         return (

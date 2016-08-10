@@ -40,12 +40,12 @@ module.exports = {
         "image_url" : "camera.png",
         "image_require": require('./Symbols/camera.png'),
         },
-        {
-        "id" : 5,
-        "text" : "can-not",
-        "image_url" : "can-not_can-not.png",
-        "image_require": require("./Symbols/can-not_can-not.png"),
-        },
+        // {
+        // "id" : 5,
+        // "text" : "can-not",
+        // "image_url" : "can-not_can-not.png",
+        // "image_require": require("./Symbols/can-not_can-not.png"),
+        // },
         {
         "id" : 6,
         "text" : "can_do",
@@ -63,6 +63,18 @@ module.exports = {
         "text" : "candy",
         "image_url" : "candy-01.png",
         "image_require": require('./Symbols/candy-01.png'),
+        },
+        {
+        "id" : 9,
+        "text" : "cat",
+        "image_url" : "cat-01.png",
+        "image_require": require('./Symbols/cat-01.png'),
+        },
+        {
+        "id" : 10,
+        "text" : "broke",
+        "image_url" : "cast-01_1369040872.png",
+        "image_require": require('./Symbols/cast-01_1369040872.png'),
         },
 
     ]

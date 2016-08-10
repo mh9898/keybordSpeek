@@ -19,7 +19,7 @@ import {
 
 //var ComicDetail = require("./ComicDetailView");
 
-var REQUEST_URL = 'http://olamundo-server.cloudapp.net/';
+var REQUEST_URL = 'http://gateway.marvel.com:80/v1/public/characters';
 
 // this.public_key = '9a6a2e7e2ee1ff735a5d269bed263e7e';
 // this.private_key = '6ebe068fe586aeb4c6a9003538560d873bc38dcb';
@@ -31,9 +31,9 @@ class ComicListView extends Component {
 
         super(props);
         // var varPageSize = 1000;
-        this.timestamp = '';
-        this.public_key = 'david.borohov@gmail.com';
-        this.private_key = 'olamundo1234';
+        this.timestamp = 1;
+        this.public_key = 'dd270622b0862dca7362941546acf4d1';
+        this.private_key = 'd0ed8fc28f38b6ee3bf69002e7991a552e5bddda';
         this.state = {
           dataSource: new ListView.DataSource({
             rowHasChanged: (row1, row2) => row1 !== row2,
@@ -52,22 +52,8 @@ class ComicListView extends Component {
 
       //results == comic
     fetchData() {
-      //var hash = crypto.MD5(this.private_key+this.public_key);
-      fetch(REQUEST_URL+'users/sign_in',{
-        method: 'POST',
-        headers: {
-  'Accept': 'application/json',
-  'Content-Type': 'application/json',
-},
-        body:JSON.stringify({
-
-          "user": {
-             "email": "david.borohov@gmail.com",
-             "password": "olamundo1234"
-           }
-
-        })
-      })
+      var hash = crypto.MD5(this.timestamp+this.private_key+this.public_key);
+      fetch(REQUEST_URL+'?ts='+this.timestamp+'&apikey='+this.public_key+'&hash='+hash)
         .then((response) => response.json())
         .then((responseData) => {
           this.setState({
@@ -76,7 +62,7 @@ class ComicListView extends Component {
           });
         })
         .done();
-      }
+    }
 
     renderLoadingView() {
       return (

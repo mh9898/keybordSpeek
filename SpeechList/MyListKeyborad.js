@@ -20,7 +20,7 @@ import {
 var Data = require('./Data');
 var Speech = require('react-native-speech');
 
-class MyList7 extends Component {
+class MyListKeyborad extends Component {
 
   constructor(props) {
     super(props);
@@ -97,9 +97,9 @@ symbol:{
   welcome: {
     fontSize: 16,
     textAlign: 'center',
-    margin: 40,
+    margin: 30,
     justifyContent: 'space-around',
   },
 });
 
-module.exports = MyList7;
+module.exports = MyListKeyborad;
